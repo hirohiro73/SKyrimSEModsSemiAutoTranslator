@@ -95,7 +95,30 @@ namespace SKyrimSEModsSemiAutoTranslator
                 // ---------------------------------------------------------
                 onProgress(0, 0, "Step 5: MCMファイルを配備中...");
 
-                // 1. アーカイブ由来の翻訳済みテキスト (SortedTxtDir) をコピー
+                // 1. xTranslatorで翻訳したテキスト (TranslatedTxtDir) をコピー
+                if (Directory.Exists(_ctx.TranslatedTxtDir))
+                {
+                    var translatedTxts = Directory.GetFiles(_ctx.TranslatedTxtDir, "*.txt", SearchOption.TopDirectoryOnly);
+                    foreach (var file in translatedTxts)
+                    {
+                        token.ThrowIfCancellationRequested();
+                        string fileName = Path.GetFileName(file);
+                        string destPath = Path.Combine(finalMcmDir, fileName);
+
+                        try
+                        {
+                            File.Copy(file, destPath, true);
+                            log($"  [MCM Copy (Translated)] {fileName}");
+                            countMcm++;
+                        }
+                        catch (Exception ex)
+                        {
+                            log($"  [Error] MCMコピー失敗 (Translated): {ex.Message}");
+                        }
+                    }
+                }
+
+                // 2. アーカイブ由来の翻訳済みテキスト (SortedTxtDir) をコピー
                 if (Directory.Exists(_ctx.SortedTxtDir))
                 {
                     var sortedTxts = Directory.GetFiles(_ctx.SortedTxtDir, "*.txt", SearchOption.TopDirectoryOnly);
@@ -118,29 +141,6 @@ namespace SKyrimSEModsSemiAutoTranslator
                     }
                 }
 
-                // 2. xTranslatorで翻訳したテキスト (TranslatedTxtDir) をコピー
-                // ※同名ファイルがある場合はこちら(自分で機械翻訳したもの)で上書きします
-                if (Directory.Exists(_ctx.TranslatedTxtDir))
-                {
-                    var translatedTxts = Directory.GetFiles(_ctx.TranslatedTxtDir, "*.txt", SearchOption.TopDirectoryOnly);
-                    foreach (var file in translatedTxts)
-                    {
-                        token.ThrowIfCancellationRequested();
-                        string fileName = Path.GetFileName(file);
-                        string destPath = Path.Combine(finalMcmDir, fileName);
-
-                        try
-                        {
-                            File.Copy(file, destPath, true);
-                            log($"  [MCM Copy (Translated)] {fileName}");
-                            countMcm++;
-                        }
-                        catch (Exception ex)
-                        {
-                            log($"  [Error] MCMコピー失敗 (Translated): {ex.Message}");
-                        }
-                    }
-                }
 
                 if (countMcm == 0 && countEsp > 0)
                 {
