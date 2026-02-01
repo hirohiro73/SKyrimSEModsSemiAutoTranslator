@@ -10,7 +10,6 @@ namespace SKyrimSEModsSemiAutoTranslator
         public string SseATPath { get; set; } = "";
         public string SevenZipPath { get; set; } = "";
         public string TranslationFileCacheDir { get; set; } = "";
-        public string ReferedJsonDir { get; set; } = "";
         public string WorkDir { get; set; } = "";
         public string FinalDestDir { get; set; } = "";
     }

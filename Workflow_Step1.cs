@@ -59,15 +59,6 @@ namespace SKyrimSEModsSemiAutoTranslator
                         continue;
                     }
 
-                    // [除外2] 翻訳済みチェック
-                    string existingJsonPath = Path.Combine(_ctx.CacheDir, "SKSE", "Plugins", "DynamicStringDistributor", fileName, "SSE-AT_output.json");
-                    if (File.Exists(existingJsonPath))
-                    {
-                        log($"[Skip] 翻訳済み: {fileName}");
-                        skipDone++;
-                        continue;
-                    }
-
                     // コピー実行
                     string destPath = Path.Combine(_ctx.TargetEspDir, fileName);
                     File.Copy(file, destPath, true);

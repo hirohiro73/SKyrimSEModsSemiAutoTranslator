@@ -49,7 +49,6 @@ namespace SKyrimSEModsSemiAutoTranslator
             settings.SseATPath = tbSseAtPath.Text;
             settings.SevenZipPath = tb7zPath.Text;
             settings.TranslationFileCacheDir = tbCacheTranslationFilesDir.Text;
-            settings.ReferedJsonDir = tbReferedJsonDir.Text;
             settings.WorkDir = tbWorkDir.Text;
             settings.FinalDestDir = tbFinalDestDir.Text;
 
@@ -74,7 +73,6 @@ namespace SKyrimSEModsSemiAutoTranslator
                     tbSseAtPath.Text = settings.SseATPath;
                     tb7zPath.Text = settings.SevenZipPath;
                     tbCacheTranslationFilesDir.Text = settings.TranslationFileCacheDir;
-                    tbReferedJsonDir.Text = settings.ReferedJsonDir;
                     tbWorkDir.Text = settings.WorkDir;
                     tbFinalDestDir.Text = settings.FinalDestDir;
                 }
@@ -296,30 +294,6 @@ namespace SKyrimSEModsSemiAutoTranslator
                 {
                     // 選ばれたパスをテキストボックスに入れる
                     tbWorkDir.Text = fbd.SelectedPath;
-                }
-            }
-        }
-
-        private void onClick_btnReferedJsonDir(object sender, EventArgs e)
-        {
-            // ダイアログのインスタンス作成
-            using (var fbd = new FolderBrowserDialog())
-            {
-                // オプション設定
-                fbd.Description = "翻訳済み json フォルダを選択してください";
-                fbd.ShowNewFolderButton = false; // 「新しいフォルダ作成」ボタンを表示するか
-
-                // もしテキストボックスに既にパスが入っていれば、そこを初期位置にする
-                if (Directory.Exists(tbReferedJsonDir.Text))
-                {
-                    fbd.SelectedPath = tbReferedJsonDir.Text;
-                }
-
-                // ダイアログを表示し、「OK」が押されたら処理する
-                if (fbd.ShowDialog() == DialogResult.OK)
-                {
-                    // 選ばれたパスをテキストボックスに入れる
-                    tbReferedJsonDir.Text = fbd.SelectedPath;
                 }
             }
         }

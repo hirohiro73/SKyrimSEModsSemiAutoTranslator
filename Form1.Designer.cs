@@ -32,19 +32,16 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            label5 = new Label();
             label6 = new Label();
             tbMO2ModsDir = new TextBox();
             tbSseAtPath = new TextBox();
             tb7zPath = new TextBox();
             tbCacheTranslationFilesDir = new TextBox();
-            tbReferedJsonDir = new TextBox();
             tbWorkDir = new TextBox();
             btnMO2ModsDir = new Button();
             btnSseAtPath = new Button();
             btn7zPath = new Button();
             btnCacheTranslationFilesDir = new Button();
-            btnReferedJsonDir = new Button();
             btnWorkDir = new Button();
             label7 = new Label();
             tbFinalDestDir = new TextBox();
@@ -53,7 +50,6 @@
             pbProgress = new ProgressBar();
             tbLog = new TextBox();
             btnProcessStart = new Button();
-            label8 = new Label();
             label_Progress = new Label();
             btnCancel = new Button();
             SuspendLayout();
@@ -94,15 +90,6 @@
             label4.TabIndex = 3;
             label4.Text = "翻訳ファイル キャッシュフォルダ";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(91, 206);
-            label5.Name = "label5";
-            label5.Size = new Size(119, 15);
-            label5.TabIndex = 4;
-            label5.Text = "翻訳済み DSD 用 json";
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -139,13 +126,6 @@
             tbCacheTranslationFilesDir.Name = "tbCacheTranslationFilesDir";
             tbCacheTranslationFilesDir.Size = new Size(378, 23);
             tbCacheTranslationFilesDir.TabIndex = 9;
-            // 
-            // tbReferedJsonDir
-            // 
-            tbReferedJsonDir.Location = new Point(232, 203);
-            tbReferedJsonDir.Name = "tbReferedJsonDir";
-            tbReferedJsonDir.Size = new Size(378, 23);
-            tbReferedJsonDir.TabIndex = 10;
             // 
             // tbWorkDir
             // 
@@ -193,16 +173,6 @@
             btnCacheTranslationFilesDir.Text = "...";
             btnCacheTranslationFilesDir.UseVisualStyleBackColor = true;
             btnCacheTranslationFilesDir.Click += onClick_btnCacheTranslationFilesDir;
-            // 
-            // btnReferedJsonDir
-            // 
-            btnReferedJsonDir.Location = new Point(618, 202);
-            btnReferedJsonDir.Name = "btnReferedJsonDir";
-            btnReferedJsonDir.Size = new Size(40, 23);
-            btnReferedJsonDir.TabIndex = 16;
-            btnReferedJsonDir.Text = "...";
-            btnReferedJsonDir.UseVisualStyleBackColor = true;
-            btnReferedJsonDir.Click += onClick_btnReferedJsonDir;
             // 
             // btnWorkDir
             // 
@@ -276,15 +246,6 @@
             btnProcessStart.UseVisualStyleBackColor = true;
             btnProcessStart.Click += onClick_btnProcessStart;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(91, 221);
-            label8.Name = "label8";
-            label8.Size = new Size(58, 15);
-            label8.TabIndex = 25;
-            label8.Text = "(オプション)";
-            // 
             // label_Progress
             // 
             label_Progress.Location = new Point(35, 315);
@@ -311,7 +272,6 @@
             ClientSize = new Size(697, 640);
             Controls.Add(btnCancel);
             Controls.Add(label_Progress);
-            Controls.Add(label8);
             Controls.Add(btnProcessStart);
             Controls.Add(tbLog);
             Controls.Add(pbProgress);
@@ -320,19 +280,16 @@
             Controls.Add(tbFinalDestDir);
             Controls.Add(label7);
             Controls.Add(btnWorkDir);
-            Controls.Add(btnReferedJsonDir);
             Controls.Add(btnCacheTranslationFilesDir);
             Controls.Add(btn7zPath);
             Controls.Add(btnSseAtPath);
             Controls.Add(btnMO2ModsDir);
             Controls.Add(tbWorkDir);
-            Controls.Add(tbReferedJsonDir);
             Controls.Add(tbCacheTranslationFilesDir);
             Controls.Add(tb7zPath);
             Controls.Add(tbSseAtPath);
             Controls.Add(tbMO2ModsDir);
             Controls.Add(label6);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -349,19 +306,16 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private Label label5;
         private Label label6;
         private TextBox tbMO2ModsDir;
         private TextBox tbSseAtPath;
         private TextBox tb7zPath;
         private TextBox tbCacheTranslationFilesDir;
-        private TextBox tbReferedJsonDir;
         private TextBox tbWorkDir;
         private Button btnMO2ModsDir;
         private Button btnSseAtPath;
         private Button btn7zPath;
         private Button btnCacheTranslationFilesDir;
-        private Button btnReferedJsonDir;
         private Button btnWorkDir;
         private Label label7;
         private TextBox tbFinalDestDir;
@@ -370,7 +324,6 @@
         private ProgressBar pbProgress;
         private TextBox tbLog;
         private Button btnProcessStart;
-        private Label label8;
         private Label label_Progress;
         private Button btnCancel;
     }
